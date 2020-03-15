@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-   root 'application#hola'
+  resources :vehicles do
+    match '/scrape', to: 'vehicles#scrape', via: :post, on: :collection
+  end
+
+  root to: 'vehicles#index'
 end
